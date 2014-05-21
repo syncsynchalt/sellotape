@@ -1,0 +1,28 @@
+defaultTasks 'build'
+
+apply plugin: 'groovy'
+apply plugin: 'java'
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+group = 'sellotape'
+version = '1.0'
+
+ext.seleniumVersion = '2.41.0'
+ext.groovyVersion = '2.2.2'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url "http://cm.pax8.com/maven2" }
+}
+
+dependencies {
+    compile group: 'org.codehaus.groovy', name: 'groovy-all', version: groovyVersion, classifier:'indy'
+    compile 'log4j:log4j:1.2.17'
+    compile "com.github.detro.ghostdriver:phantomjsdriver:1.1.0"
+    compile "org.seleniumhq.selenium:selenium-firefox-driver:$seleniumVersion"
+    compile "org.seleniumhq.selenium:selenium-java:$seleniumVersion"
+    compile "org.seleniumhq.selenium:selenium-server:$seleniumVersion"
+    compile "junit:junit:4.11"
+}
