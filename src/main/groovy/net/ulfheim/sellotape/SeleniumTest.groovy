@@ -83,7 +83,7 @@ abstract class SeleniumTest extends GroovyTestCase {
         return element
     }
 
-    def pageShouldNotContain(String text) {
+    void pageShouldNotContain(String text) {
         List list = driver.findElements(By.xpath("""//*[contains(text(), "$text")]"""));
         for (WebElement el : list) {
             assertFalse(el.displayed)
